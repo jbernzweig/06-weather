@@ -6,7 +6,7 @@ let weather = {
         + "&units=metric&appid="
         + this.apiKey)
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => this.displayWeather(data));
     },
     displayWeather: function(data) {
         const { name } = data;
@@ -20,19 +20,55 @@ let weather = {
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".speed").innerText = "Wind Speed: " + speed + "mph";
-    }    
+    }, 
     search: function() {
        this.fetchWeather(document.querySelector(".search-bar").value);
     }   
 };
 
-document.querySelector(".search-button").addEventListener("click", function() {
+document.querySelector(".search button").addEventListener("click", function() {
     weather.search();
 });
 
+document.querySelector(".search-bar").addEventListener("keyup", function(event) {
+    if (event.key == "Enter") {
+        weather.search();
+    }
+})
 
-// 1. Find a city
+// Begin Local Storage
+function addCityToLocalStorage() {
+    localStorage.setItem('key', JSON.stringify());
+}    
 
-// 2. Use function to get current weather data
+function getCityFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('key'));
+}    
 
-// 3. Use function to get 5-day forecast data
+function addCity (city) {
+    let currentBookList = getCityFromLocalStorage();
+    currentCityList.push(city);
+    addCityToLocalStorage(currentCityList);
+}
+
+if(storageInput) {
+    text.textContent = storedCities;
+}
+
+const myCities = ["Denver", "Cleveland", "London", "Paris"];
+  addCitiesToLocalStorage(myFavoriteCities);
+  addCity("Next City"); 
+
+button.addEventListener('click', cityAddClick)
+
+function cityAddClick(event) {
+    let title = event.target.parentNode.querySelector('h3').textContent;
+    let author = event.target.parentNode.querySelector('h4').textContent;
+    let newEntry = {
+        Title: title,
+        author: author
+    }
+    addBook(JSON.stringify(newEntry));
+}
+
+// End Local Storage 
