@@ -36,6 +36,13 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event) 
     }
 })
 
+
+
+
+
+
+
+
 // Begin Local Storage
 function addCityToLocalStorage() {
     localStorage.setItem('key', JSON.stringify());

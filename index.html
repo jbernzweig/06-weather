@@ -12,22 +12,29 @@
 </head>
 
 <body>
-    <div class="card">
-        <div class="search">
-            <input type="text" class="search-bar" placeholder="Search for Weather" autocomplete="off">
-            <button>Search</button>
-        </div>
-        <div class="weather">
-            <h2 class="city">Weather in Denver</h2>
-            <h1 class="temp">51 &deg;</h1>
-            <div class="flex">
-                <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
-                <div class="description">Cloudy</div>
-              </div>
-            <div class="humidity">Humidity = 60%</div>
-            <div class="wind">Wind Speed = 6 mph</div>
-        </div>
+    <div class="search">
+        <input type="text" class="search-bar" placeholder="Search for City" autocomplete="on">
+        <button>Search</button>
+        <!-- <button class="location">Use Current Location</button> -->
     </div>
+
+    <div class="weather">
+        <h2 class="city">Weather in Denver</h2>
+        <h1 class="temp">51 &deg;</h1>
+        <div class="flex">
+            <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+            <div class="description">Cloudy</div>
+            </div>
+        <div class="humidity">Humidity = 60%</div>
+        <div class="wind">Wind Speed = 6 mph</div>
+    </div>
+
+    <aside>
+        <div class="outlook-card"></div>
+            <h2 class="card-title">Weather Outlook</h2>
+            <!-- <p class="card-text">Monday</p> -->
+        </div>
+    </aside>
 
     <script src="assets/script.js"></script>
 </body>
